@@ -41,6 +41,8 @@ open class SideMenuManager : NSObject {
         return appWindowRect
     }
 
+    open var enableScreenEdgeGestures: Bool = true
+    
     /**
      The push style of the menu.
      
@@ -331,6 +333,10 @@ open class SideMenuManager : NSObject {
         } else if let blurView = view.subviews[0] as? UIVisualEffectView {
             blurView.removeFromSuperview()
         }
+    }
+    
+    open func setEnableScreenEdgeGestures(value: Bool) {
+        self.enableScreenEdgeGestures = value
     }
     
     /**
@@ -681,3 +687,4 @@ extension SideMenuManager {
         return `default`.menuAddPanGestureToPresent(toView: toView)
     }
 }
+
